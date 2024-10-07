@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+#input-login {
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+#p-login {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#imgTopBg {
+    background-color: #fbf6f3;
+    height: 100vh;
+    width: 50vh;
+    margin-left: 6vh;
+    margin-right: 6vh;
+    padding: 0px;
+}
+
+#imgTop {
+    height: 30vh;
+    width: auto;
+}
+
+#userName {
+    width: 50vh;
+    border-radius: 18px;
+}

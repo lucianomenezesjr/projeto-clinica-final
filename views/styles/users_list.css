@@ -1,0 +1,268 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #a9a9a9;
+    /* Color of the thumb */
+    border-radius: 6px;
+    /* Round the corners of the thumb */
+}
+
+/* Define the scrollbar track when not hovered */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* Color of the track */
+}
+
+/* Define the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #808080;
+    /* Color of the thumb on hover */
+}
+
+/* Define the scrollbar corner */
+::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+    /* Color of the corner */
+}
+
+#sombra {
+    background-color: black;
+    margin-top: 2vh;
+    height: 78vh;
+    width: 116.92vh;
+    border-radius: 24px;
+}
+
+#sombraSobre {
+    background-color: black;
+    margin-top: 2vh;
+    height: 20vh;
+    width: 60vh;
+    border-radius: 24px;
+    margin-left: 2vh;
+}
+
+#sombraNos {
+    background-color: black;
+    height: 20vh;
+    width: 60vh;
+    border-radius: 24px;
+}
+
+#imgPrinc {
+    margin-top: -2vh;
+    margin-left: 2vh;
+    border-radius: 24px;
+}
+
+#containerImg {
+    margin-top: 2vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#p_sobre_title {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    margin-top: 4vh;
+    font-size: 27px;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#p_sobre_text {
+    width: 48vh;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    text-align: justify;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-left: 6vh;
+
+
+}
+
+#p_sobre_title02 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#p_sobre_text02 {
+    width: 48vh;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000;
+    text-align: justify;
+    line-height: 24px;
+    vertical-align: middle;
+    margin-left: 6vh;
+
+
+}
+
+#div_up_sobre {
+    height: 13vh;
+    width: 60vh;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+    background-color: #8EBC8A;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+}
+
+#div_text_sobre {
+    width: 60vh;
+    height: 39vh;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    background-color: #DDFFDA;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#div_cont_title {
+    position: relative;
+    left: 2vh;
+    top: -2vh;
+    width: 60vh;
+    height: 7vh;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+    background-color: #8EBC8A;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    color: #000;
+    text-align: center;
+}
+
+#card01 {
+    width: 60vh;
+    margin-top: 4vh;
+    border-radius: 24px;
+    border-style: none;
+}
+
+#cardBody {
+    background-color: #DDFFDA;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+#cardHeader {
+    background-color: #8EBC8A;
+    border-top-right-radius: 24px;
+    border-top-left-radius: 24px;
+}
+
+#instagram {
+
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#email {
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#linkedin {
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#twitter {
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+/*.sombra_letra {text-shadow: 2px 3px 7px rgba(0, 0, 0, 0.5);}*/
+#box {
+    box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.5);
+}
+
+#custom-card {
+    border: 2px solid #5EB09E;
+    border-radius: 20px;
+}
+
+#custom-card:hover {
+    background-color: rgb(94, 176, 158, 0.2);
+    cursor: pointer;
+}
+
+
+.botao {
+    border-color: #5EB09E;
+    border: 2px solid #415C3F;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    border-radius: 15px;
+    color: #415C3F;
+    width: 450px;
+    height: 47px;
+    background-color: rgb(94, 176, 158, 0.05);
+
+}
+
+
+#t {
+    font-size: medium;
+    padding-left: 10px;
+}
+
+#t:hover {
+    background-color: rgb(94, 176, 158, 0.3);
+}
+
+.offcanvas-end {
+    max-width: 350px;
+    /* Defina a largura máxima desejada */
+}
+
+#nameList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#li {
+    padding: 8px;
+    border: 2px solid #ddd;
+    margin: 2px;
+    border-radius: 10px;
+    width: auto;
+    
+}
+
+#editar_btn {
+    width: 10vh;
+    height: 6vh;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: #5EB09E;
+    border: none;
+    border-radius: 12px;
+    color: #000;
+}

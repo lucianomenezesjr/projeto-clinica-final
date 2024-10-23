@@ -5,37 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../views/styles/agendamentoConsultaPaciente.css">
 <style>
-    body { font-family: Arial, sans-serif;
-    background-color: #fbf6f3;}
-
-    .btn-custom {
-        background-color: #6AB297;
-        color: white;
-    }
-
-    .btn-custom:hover {
-        background-color: #5EADA2;
-    }
-
-    .form-control, .form-select {
-        border: 2px solid #57B998;
-        border-radius: 20px;
-    }
-
-    .container-custom {
-        padding: 20px;
-        margin-top: 100px;
-    }
-
-    .title {
-        font-size: 2.5rem; /* Aumenta o tamanho da fonte */
-        font-weight: bold;  /* Deixa o texto em negrito */
-        color: rgb(71, 74, 76);
-        font-family: 'Inter', sans-serif;
-    }
-
+    
 </style>
 
 </head>

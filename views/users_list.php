@@ -282,7 +282,7 @@
 </style>
 
 <body>
-<div class="container" style="margin: 2px;">
+<div class="container">
 
 <!-- <nav class="navbar" style="margin: 2vh; border-radius: 24px; background-color: #A9DDDE; padding: 0px;">-->
 <!-- navbar -->
@@ -293,7 +293,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="home.html">
       <div style="font-weight: bold; " id="title" class="p-0 m-0">
-        <img src="imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;"
+        <img src="imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;"
           alt="logo">
         Medical Group | Fisioterapia
 

@@ -2,7 +2,8 @@
 
 require_once '../config/database.php';
 
-class User {
+class User
+{
     private $conn;
     private $table_name = "users";
 
@@ -23,14 +24,16 @@ class User {
     public $diseases;
     public $medicine;
 
-    
 
-    public function __construct() {
+
+    public function __construct()
+    {
         $database = new Database();
         $this->conn = $database->getConnection();
     }
 
-    public function save() {
+    public function save()
+    {
         $query = "INSERT INTO " . $this->table_name . " (name, birth_date, user_type, telephone, email, biological_sex, email_confirmation, street, password, number, password_confirmation, neighborhood, alergies, diseases, medicine) VALUES (:name, :birth_date, :user_type, :telephone, :email, :biological_sex, :email_confirmation, :street, :password, :number, :password_confirmation, :neighborhood, :alergies, :diseases, :medicine)";
         $stmt = $this->conn->prepare($query);
 
@@ -58,10 +61,26 @@ class User {
         return false;
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         $query = "SELECT * FROM " . $this->table_name;
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getEmailAndPasswordUser($email, $password){
+
+        $query = "SELECT user_type FROM " . $this->table_name . " WHERE email = :email AND password = :password";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Retorna o tipo de usuário ou null se não encontrado
+        return $result ? $result['user_type'] : null;
     }
 }

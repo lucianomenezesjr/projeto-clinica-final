@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../views/styles/agendamentoConsultaPaciente.css">
-    <link rel="shortcut icon" href="../views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
-<style>
-    
-</style>
+    <link rel="stylesheet" href="views/styles/agendamentoConsultaPaciente.css">
+    <link rel="shortcut icon" href="views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
+    <style>
+    body{
+        overflow: hidden;
+    }
+    </style>
 
 </head>
 <body>
@@ -17,7 +19,7 @@
 
         <!-- coluna do lado esquerdo-->
         <div class="col-5 d-flex justify-content-center align-items-center" style="background-color: #fbf6f3">
-            <img src="imagens_login/logoVetor.svg" style="height: 200px;">
+            <img src="views/imagens/imagens_home/logoVetor.svg" style="height: 200px;">
         </div>
 
         <!-- coluna do lado direito-->

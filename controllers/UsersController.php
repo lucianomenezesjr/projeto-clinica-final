@@ -1,15 +1,18 @@
 <?php
 
-require_once '../models/User.php'; 
+require_once '../models/User.php';
 
-class UsersController {
+class UsersController
+{
 
-    public function showForm() {
+    public function showForm()
+    {
         // Exibe o formulário de cadastro de usuários
         require_once '../views/users_form.php';
     }
 
-    public function saveUsers() {
+    public function saveUsers()
+    {
         // Recebe dados do formulário
         $name = $_POST['name'];
         $birth_date = $_POST['birth_date'];
@@ -26,7 +29,7 @@ class UsersController {
         $alergies = $_POST['alergies'];
         $diseases = $_POST['diseases'];
         $medicine = $_POST['medicine'];
-        
+
 
         // Cria um novo usuário
         $user = new User();
@@ -55,12 +58,43 @@ class UsersController {
         }
     }
 
-    public function listUsers() {
+    public function listUsers()
+    {
         // Pega todos os usuários do banco de dados
         $user = new User();
         $users = $user->getAll();
 
         // Exibe a lista de usuários
         require_once '../views/users_list.php';
+    }
+}
+class UsersLogin
+{
+    public function showLogin()
+    {
+        // Exibe o formulário de login de usuários
+        require_once '../views/login.php';
+    }
+    public function showHomePaciente()
+    {
+        // Exibe o formulário de login de usuários
+        require_once '../views/agendamentoConsultaParaPaciente.php';
+    }
+
+    public function loginVerify()
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $user = new User();
+        $user_type = $user->getEmailAndPasswordUser($email, $password);
+
+        if ($user_type == "Paciente") {
+            header('Location: /projeto_clinica/showHomePaciente');
+            exit();
+        }
+        else{
+            echo "Usuário ou senha inválidos!";
+        }
     }
 }

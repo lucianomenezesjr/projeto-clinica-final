@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
-  <link rel="shortcut icon" href="../views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
-  
+  <link rel="shortcut icon" href="views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../views/styles/users_form.css">
+  <link rel="stylesheet" href="views/styles/users_form.css">
 
 </head>
 
@@ -29,7 +29,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="home.html">
           <div style="font-weight: boldCadastro; " id="title" class="p-0 m-0">
-            <img src="../views/imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;" alt="logo"> Medical Group | Fisioterapia
+            <img src="views/imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;" alt="logo"> Medical Group | Fisioterapia
           </div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -100,7 +100,7 @@
     style="font-size: 60px; font-weight: bold; text-align: center; margin-top: 20px; margin-bottom: 40px; color: #5EB09E;">
     Cadastro </h1>
 
-  <form action="/projeto_clinica/save-user" method="POST">
+  <form action="/projeto_clinica/save-user" method="POST" onsubmit="return validarFormulario()">
     <div class="container pt-0 pb-2 p-5">
       <div class="row"> <!-- primeira linha -->
         <div class="col mb-1 d-flex justify-content-center">
@@ -144,7 +144,7 @@
         </div>
 
         <div class="col   mb-1 d-flex justify-content-center">
-          <input class="botao text-center" name="email" type="email" placeholder="E-mail" required>
+          <input class="botao text-center" id="email" name="email" type="email" placeholder="E-mail" required>
         </div>
       </div>
 
@@ -160,7 +160,7 @@
         </div>
 
         <div class="col   mb-1 d-flex justify-content-center">
-          <input class="botao text-center" type="email" name="email_confirmation" placeholder="Confirme o seu e-mail" required>
+          <input class="botao text-center" type="email" id="emailConfirmation" name="email_confirmation" placeholder="Confirme o seu e-mail" required>
         </div>
 
       </div>
@@ -171,7 +171,7 @@
         </div>
 
         <div class="col   mb-1 d-flex justify-content-center">
-          <input class="botao text-center" type="password" name="password" placeholder="Senha" required>
+          <input class="botao text-center" type="password" id="senha" name="password" placeholder="Senha" required>
         </div>
 
       </div>
@@ -182,7 +182,7 @@
         </div>
 
         <div class="col   mb-1 d-flex justify-content-center">
-          <input class="botao text-center" type="password" name="password_confirmation"  placeholder="Confirme sua senha" required>
+          <input class="botao text-center" type="password" id="senhaConfirmation" name="password_confirmation" placeholder="Confirme sua senha" required>
         </div>
 
       </div>
@@ -216,10 +216,33 @@
 
   <div class="d-grid justify-content-center">
     <input type="submit" class="btn active" style="width: 200px; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">
-    
+
   </div>
 
   </div>
+
+  <script>
+    function validarFormulario() {
+      const email = document.getElementById('email').value;
+      const emailConfirmacao = document.getElementById('emailConfirmation').value;
+      const senha = document.getElementById('senha').value;
+      const senhaConfirmacao = document.getElementById('senhaConfirmation').value;
+
+      if (email !== emailConfirmacao) {
+        alert("Os e-mails não coincidem.");
+        return false;
+      }
+
+      if (senha !== senhaConfirmacao) {
+        alert("As senhas não coincidem.");
+        return false;
+      }
+
+      alert("Cadastro realizado com sucesso!");
+      return true;
+    }
+  </script>
 
 </body>
+
 </html>

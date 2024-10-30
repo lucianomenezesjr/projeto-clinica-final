@@ -12,8 +12,8 @@ $request = $_SERVER['REQUEST_URI'];
 
 
 switch ($request) {
-    
-    case '/projeto_clinica/public/':
+
+    case '/projeto_clinica/user-form':
         $controller = new UsersController();
         $controller->showForm();
         break;
@@ -24,6 +24,21 @@ switch ($request) {
     case '/projeto_clinica/list-users':
         $controller = new UsersController();
         $controller->listUsers();
+        break;
+
+    case '/projeto_clinica/login':
+        $controller = new UsersLogin();
+        $controller->showLogin();
+        break;
+
+    case '/projeto_clinica/showHomePaciente':
+        $controller = new UsersLogin();
+        $controller->showHomePaciente();
+        break;
+
+    case '/projeto_clinica/login-verify':
+        $controller = new UsersLogin();
+        $controller->loginVerify();
         break;
     default:
         http_response_code(404);

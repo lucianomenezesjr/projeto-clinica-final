@@ -119,11 +119,11 @@
         <div class="col mb-1 d-flex justify-content-center">
           <select class="botao" value="<?php echo $userInfo['user_type']; ?>" name="user_type" required>
             <option value="select" disabled selected style="text-align: center;">Tipo</option>
-            <option value="Secretária(o)" id="tipo" class="quadro" style="text-align: center;">Secretária(o)</option>
-            <option value="Paciente" id="tipo" class="quadro" style="text-align: center;">Paciente</option>
-            <option value="Médica(o)" id="tipo" class="quadro" style="text-align: center;">Médica(o)</option>
+            <option value="Secretária(o)" <?php echo ($userInfo['user_type'] == 'Secretária(o)') ? 'selected' : ''; ?>   class="quadro" style="text-align: center;">Secretária(o)</option>
+            <option value="Paciente"   <?php echo ($userInfo['user_type'] == 'Paciente') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Paciente</option>
+            <option value="Médica(o)" <?php echo ($userInfo['user_type'] == 'Médica(o)') ? 'selected' : ''; ?>   class="quadro" style="text-align: center;">Médica(o)</option>
           </select>
-
+ 
         </div>
 
         <div class="col mb-1 d-flex justify-content-center">
@@ -135,12 +135,12 @@
         <div class="col mb-1 d-flex justify-content-center">
           <select class="botao" value="<?php echo $userInfo['health_care']; ?>" name="health_care" required>
             <option value="select" disabled selected style="text-align: center;">Convênio</option>
-            <option value="Unimed" id="tipo" class="quadro" style="text-align: center;">Unimed</option>
-            <option value="Grupo NotreDame Intermédica" id="tipo" class="quadro" style="text-align: center;">Grupo NotreDame Intermédica</option>
-            <option value="Amil" id="tipo" class="quadro" style="text-align: center;">Amil</option>
-            <option value="SulAmérica" id="tipo" class="quadro" style="text-align: center;">SulAmérica</option>
-            <option value="Bradesco Saúde" id="tipo" class="quadro" style="text-align: center;">Bradesco Saúde</option>
-            <option value="Allianz" id="tipo" class="quadro" style="text-align: center;">Allianz</option>
+            <option value="Unimed" <?php echo ($userInfo['health_care'] == 'Unimed') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Unimed</option>
+            <option value="Grupo NotreDame Intermédica" <?php echo ($userInfo['health_care'] == 'Grupo NotreDame Intermédica') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Grupo NotreDame Intermédica</option>
+            <option value="Amil" <?php echo ($userInfo['health_care'] == 'Amil') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Amil</option>
+            <option value="SulAmérica" <?php echo ($userInfo['health_care'] == 'SulAmérica') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">SulAmérica</option>
+            <option value="Bradesco Saúde" <?php echo ($userInfo['health_care'] == 'Bradesco Saúde') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Bradesco Saúde</option>
+            <option value="Allianz" <?php echo ($userInfo['health_care'] == 'Allianz') ? 'selected' : ''; ?>  class="quadro" style="text-align: center;">Allianz</option>
           </select>
         </div>
 
@@ -153,10 +153,10 @@
         <div class="col   mb-1 d-flex justify-content-center">
           <select class="botao" value="<?php echo $userInfo['biological_sex']; ?>" name="biological_sex" required>
             <option value="select" disabled selected style="text-align: center;">Sexo biológico</option>
-            <option value="Feminino" id="tipo" class="quadro" style="text-align: center;">Feminino</option>
-            <option value="Masculino" id="tipo" class="quadro" style="text-align: center;">Masculino
+            <option value="Feminino"   class="quadro" style="text-align: center;">Feminino</option>
+            <option value="Masculino"   class="quadro" style="text-align: center;">Masculino
             </option>
-            <option value="outro" id="tipo" class="quadro" style="text-align: center;">Outro</option>
+            <option value="outro"   class="quadro" style="text-align: center;">Outro</option>
           </select>
         </div>
 

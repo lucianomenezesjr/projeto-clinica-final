@@ -53,20 +53,31 @@
             <!-- Campo de Busca -->
             <form class="form-inline mr-3">
                 <div class="input-group">
-
-                    <input type="text" style="border-radius: 15px;" class="form-control" placeholder="Faça sua busca aqui" aria-label="Busca">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="search-icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Faça sua busca aqui" aria-label="Busca" aria-describedby="search-icon">
                 </div>
             </form>
 
-            <!-- Botão de Login -->
-            <a href="login.html" class="btn d-flex align-items-center mr-2" style="background-color: #07a69e; color: white; border-radius: 15px;">
-                <img src="../views/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
-                Login
-            </a>
+<!-- Botão de Perfil com Dropdown -->
+<div class="dropdown">
+    <a class="btn d-flex align-items-center mr-2 dropdown-toggle" style="background-color: #07a69e; color: white;" data-toggle="dropdown" aria-expanded="false">
+        <img src="../views/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
+        Perfil
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="editar_perfil.html">Editar Perfil</a>
+        <a class="dropdown-item" href="logout.html">Sair</a>
+    </div>
+</div>
+
 
             <!-- Botão Acesso Rápido com Dropdown -->
             <div class="dropdown">
-                <button class="btn dropdown-toggle mr-3" type="button" id="acessoRapidoDropdown" style="color:white; background-color: #f15e70; border-radius: 15px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn dropdown-toggle mr-3" type="button" id="acessoRapidoDropdown" style="color:white; background-color: #f15e70;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Acesso Rápido
                 </button>
                 <div class="dropdown-menu" aria-labelledby="acessoRapidoDropdown">

@@ -10,53 +10,75 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Importação da Fonte Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="views/styles/login.css">
     <link rel="shortcut icon" href="views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
 </head>
+<style>
+    /* Definindo a fonte Inter para a página */
+    body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        #card01 {
+            width: 60vh;
+            margin-top: 4vh;
+            border-radius: 24px;
+            border-style: none;
+        }
+
+        #custom-card {
+            border: 2px solid #5EB09E;
+            border-radius: 20px;
+        }
+
+        #custom-card:hover {
+            background-color: rgb(94, 176, 158, 0.2);
+            cursor: pointer;
+        }
+</style>
 
 <body>
 
-    <nav class="navbar mt-2 mb-2 p-0 fixed-top" style="background-color: #A9DDDE; border-radius: 24px; margin-left: 2vh; margin-right: 2vh; ">
+    <nav class="navbar navbar-expand-lg navbar-light  navbar-custom" style=" border-bottom: 1px solid #07a69e; background-color: #a9ddde; padding: 1px;">
+        <!-- Logo e Nome da Marca -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="views/imagens/imagens_home/logoVetor.svg" alt="Logo" style="height: 40px;" class="mr-2">
+            SP Medical Group
+        </a>
 
-        <div class="container-fluid">
-            <a class="navbar-brand" href="">
-                <div style="font-weight: boldCadastro; " id="title" class="p-0 m-0">
-                    <img src="views/imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;" alt="logo">
-                    Medical Group | Fisioterapia
-
+        <!-- Campo de busca e botão de login -->
+        <div class="collapse navbar-collapse justify-content-end">
+            <!-- Campo de Busca -->
+            <form class="form-inline mr-3">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="search-icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Faça sua busca aqui" aria-label="Busca" aria-describedby="search-icon">
                 </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="margin-right: 2vh;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-weight: bold; font-size: 30px; padding-left: 12px;">SP Medical Group</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" id="t" href="#">Agendamento</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" id="t" href="#">Consultas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" id="t" href="#">Exames</a>
-                    </li>
-                </ul>
+            </form>
 
-                <div style="position: absolute; bottom: 15px; text-align: center; margin-left: -15px; width: 100%;">
-                    <a href="cadastro.html">
-                        <button class="btn btn-success mb-1 p-0" style="font-weight: bold; width: 90%;">
-                            Cadastre-se
-                            <img src="views/imagens/imagens_home/c_branco-removebg-preview.png" style="width:40px; padding-left: 2px;">
-                        </button>
-                    </a>
+            <!-- Botão de Login -->
+            <a href="/projeto_clinica/login" class="btn d-flex align-items-center mr-2" style="background-color: #07a69e; color: white;">
+                <img src="views/imagens/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
+                Login
+            </a>
+
+            <!-- Botão Acesso Rápido com Dropdown -->
+            <div class="dropdown">
+                <button class="btn dropdown-toggle mr-3" type="button" id="acessoRapidoDropdown" style="color:white; background-color: #f15e70;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acesso Rápido
+                </button>
+                <div class="dropdown-menu" aria-labelledby="acessoRapidoDropdown">
+                    <a class="dropdown-item" href="profissionais.html">Profissionais</a>
+                    <a class="dropdown-item" href="exames.html">Exames</a>
+                    <a class="dropdown-item" href="consultas.html">Consultas</a>
+                    <a class="dropdown-item" href="agendamento.html">Agendamento</a>
                 </div>
             </div>
         </div>
@@ -68,7 +90,7 @@
                 <img src="views/imagens/imagens_login/logoVetor.svg" class="img-fluid" id="imgTop" alt="Logo">
             </div>
 
-            
+
 
             <div class="col d-flex align-items-center justify-content-start" style="margin-top: 0vh; margin-left: 5vh;"><!--margin-top: -7vh;-->
                 <div>
@@ -85,13 +107,13 @@
                                 </div>
                                 <p id="p-login" style="margin-top: 2vh;">Senha</p>
                                 <input type="password" id="senhaInput" class="form-control" name="password" style="width: 50vh;border-radius: 18px;" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" required>
-                                <a href="">
-                                    <p>Esqueceu sua senha</p>
+                                <a href="" style="text-decoration: none;">
+                                    <p >Esqueceu sua senha</p>
                                 </a>
 
                                 <div class="row">
-                                    <div class="col-4"><input type="submit" id="botao" class="btn" style="background-color: #5eb09e; width: 15vh;border-radius: 18px;margin-top: 2vh;">Login</div>
-                                    <div class="col-8 pt-4"><a href="" style="margin-top: 70px;">Ainda não tem uma conta?</a></div>
+                                    <div class="col-4"><input type="submit" id="botao" class="btn" style="background-color: #5eb09e; width: 15vh;border-radius: 18px;margin-top: 2vh;"></div>
+                                    <div class="col-8 pt-4"><a href="/projeto_clinica/user-form" style="margin-top: 70px; text-decoration: none;">Ainda não tem uma conta?</a></div>
                                 </div>
                             </div>
                         </form>
@@ -101,7 +123,13 @@
             </div>
         </div>
     </div>
-    
+
 </body>
+<!-- Font Awesome para os ícones -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Scripts Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </html>

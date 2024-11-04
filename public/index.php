@@ -31,15 +31,60 @@ switch ($request) {
         $controller->showLogin();
         break;
 
-    case '/projeto_clinica/showHomePaciente':
-        $controller = new UsersLogin();
+    case '/projeto_clinica/home/paciente':
+        $controller = new homeTypes();
         $controller->showHomePaciente();
         break;
+
+    case '/projeto_clinica/home/medico':
+        $controller = new homeTypes();
+        $controller->showHomeMedico();
+        break;
+
+    case '/projeto_clinica/home/secretario':
+        $controller = new homeTypes();
+        $controller->showHomeSecretario();
+        break;
+
+    case '/projeto_clinica/home/public':
+        $controller = new homeTypes();
+        $controller->showHomePublic();
+        break;
+
+    case '/projeto_clinica/home/adm':
+        $controller = new homeTypes();
+        $controller->showHomeAdm();
+        break;
+
+    case '/projeto_clinica/agendamentos/paciente':
+        $controller = new AgendamentoTypes();
+        $controller->showAgendamentoPaciente();
+        break;
+
+    case '/projeto_clinica/agendamentos/secretario':
+        $controller = new AgendamentoTypes();
+        $controller->showAgendamentoSecretario();
+        break;
+
 
     case '/projeto_clinica/login-verify':
         $controller = new UsersLogin();
         $controller->loginVerify();
         break;
+
+    case (preg_match('/\/projeto_clinica\/update-user\/(\d+)/', $request, $matches) ? true : false):
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->showUpdateForm($id);
+        break;
+
+    case '/projeto_clinica/update-user':
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->updateUser();
+        break;
+
     default:
         http_response_code(404);
         echo "Página

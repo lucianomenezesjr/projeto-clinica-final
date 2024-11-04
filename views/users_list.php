@@ -267,7 +267,7 @@
         margin: 2px;
         border-radius: 10px;
         width: auto;
-        
+
     }
 
     #editar_btn {
@@ -283,157 +283,163 @@
 </style>
 
 <body>
-<div class="container">
+    <div class="container">
 
-<!-- <nav class="navbar" style="margin: 2vh; border-radius: 24px; background-color: #A9DDDE; padding: 0px;">-->
-<!-- navbar -->
+        <!-- <nav class="navbar" style="margin: 2vh; border-radius: 24px; background-color: #A9DDDE; padding: 0px;">-->
+        <!-- navbar -->
 
-<nav class="navbar mt-2 mb-2 p-0"
-  style="background-color: #A9DDDE; border-radius: 24px; margin-left: 2vh; margin-right: 2vh; ">
+        <nav class="navbar mt-2 mb-2 p-0"
+            style="background-color: #A9DDDE; border-radius: 24px; margin-left: 2vh; margin-right: 2vh; ">
 
-  <div class="container-fluid">
-    <a class="navbar-brand" href="home.html">
-      <div style="font-weight: bold; " id="title" class="p-0 m-0">
-        <img src="views/imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;"
-          alt="logo">
-        Medical Group | Fisioterapia
+            <div class="container-fluid">
+                <a class="navbar-brand" href="home.html">
+                    <div style="font-weight: bold; " id="title" class="p-0 m-0">
+                        <img src="views/imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;"
+                            alt="logo">
+                        Medical Group | Fisioterapia
 
-      </div>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="margin-right: 2vh;">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="margin-right: 2vh;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-    <!-- side bar -->
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="title" style="font-size: 25px; font-weight: bold; color: #4F525D;">SP Medical
-        Group</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <!-- side bar -->
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="title" style="font-size: 25px; font-weight: bold; color: #4F525D;">SP Medical
+                        Group</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" id="t" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" id="t" href="#">Agendamento</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="t" href="#">Consultas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="t" href="#">Exames</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="t" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Profissionais
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Fisioterapia Cardiovascular</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Fisioterapia dermatofuncional</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Fisioterapia Funcional</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <div style="position: absolute; bottom: 15px; text-align: center; margin-left: -15px; width: 100%;">
+                        <a href="login.html">
+                            <button class="btn btn-success mb-1 p-0" style="font-weight: bold; width: 90%;">
+                                Acesse sua conta
+                                <img src="imagens_home/c_branco-removebg-preview.png" style="width:40px; padding-left: 2px;">
+                            </button>
+                        </a>
+                    </div>
+
+
+
+                </div>
+            </div>
     </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" id="t" href="home.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" id="t" href="#">Agendamento</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="t" href="#">Consultas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="t" href="#">Exames</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="t" href="#" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Profissionais
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Fisioterapia Cardiovascular</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Fisioterapia dermatofuncional</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Fisioterapia Funcional</a></li>
-          </ul>
-        </li>
+    </nav>
+    <div class="container">
+        <h1 style="font-size: 60px; font-weight: bold; text-align: center; margin-top: 20px; margin-bottom: 40px; color: #5EB09E;">Usuários cadastrados </h1>
 
-      </ul>
-
-      <div style="position: absolute; bottom: 15px; text-align: center; margin-left: -15px; width: 100%;">
-        <a href="login.html">
-          <button class="btn btn-success mb-1 p-0" style="font-weight: bold; width: 90%;">
-            Acesse sua conta
-            <img src="imagens_home/c_branco-removebg-preview.png" style="width:40px; padding-left: 2px;">
-          </button>
-        </a>
-      </div>
-
-
-
+        <div class="col mb-1 d-flex justify-content-center">
+            <input id="search" placeholder="Digite um nome de usuário" onkeyup="searchNames()" class="botao text-center"
+                placeholder="Buscar usuários cadastrados">
+        </div>
     </div>
-  </div>
-</div>
-</nav>
-<div class="container">
-<h1 style="font-size: 60px; font-weight: bold; text-align: center; margin-top: 20px; margin-bottom: 40px; color: #5EB09E;">Usuários cadastrados </h1>
-
-<div class="col mb-1 d-flex justify-content-center">
-  <input id="search" placeholder="Digite um nome de usuário" onkeyup="searchNames()" class="botao text-center"
-    placeholder="Buscar usuários cadastrados">
-</div>
-</div>
 
     <?php if (empty($users)): ?>
         <p>Nenhum usuário cadastrado.</p>
     <?php else: ?>
-            
-            <table class="table" border="1">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Data de Nascimento</th>
-                        <th>Tipo de Usuário</th>
-                        <th>Telefone</th>
-                        <th>Email</th>
-                        <th>Sexo Biológico</th>
-                        <th>Rua</th>
-                        <th>Número</th>
-                        <th>Bairro</th>
-                        <th>Alergias</th>
-                        <th>Doenças</th>
-                        <th>Medicamentos</th>
+
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Tipo de Usuário</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Sexo Biológico</th>
+                    <th>Convênio</th>
+                    <th>Rua</th>
+                    <th>Número</th>
+                    <th>Bairro</th>
+                    <th>Alergias</th>
+                    <th>Doenças</th>
+                    <th>Medicamentos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                    <tr class="userRow"> <!-- Substituí o id pelo class -->
+                        <td><?php echo htmlspecialchars($user['name']); ?></td>
+                        <td><?php echo htmlspecialchars($user['birth_date']); ?></td>
+                        <td><?php echo htmlspecialchars($user['user_type']); ?></td>
+                        <td><?php echo htmlspecialchars($user['telephone']); ?></td>
+                        <td><?php echo htmlspecialchars($user['email']); ?></td>
+                        <td><?php echo htmlspecialchars($user['biological_sex']); ?></td>
+                        <td><?php echo htmlspecialchars($user['health_care']); ?></td>
+                        <td><?php echo htmlspecialchars($user['street']); ?></td>
+                        <td><?php echo htmlspecialchars($user['number']); ?></td>
+                        <td><?php echo htmlspecialchars($user['neighborhood']); ?></td>
+                        <td><?php echo htmlspecialchars($user['allergies']); ?></td>
+                        <td><?php echo htmlspecialchars($user['diseases']); ?></td>
+                        <td><?php echo htmlspecialchars($user['medicine']); ?></td>
+                        <td>
+                            <!-- Link para atualizar o livro -->
+                            <a href="/projeto_clinica/update-user/<?php echo $user['id']; ?>">Atualizar</a>
+                            
+                            
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($users as $user): ?>
-                        <tr id="nameList">
-                            <td><?php echo htmlspecialchars($user['id']); ?></td>
-                            <td><?php echo htmlspecialchars($user['name']); ?></td>
-                            <td><?php echo htmlspecialchars($user['birth_date']); ?></td>
-                            <td><?php echo htmlspecialchars($user['user_type']); ?></td>
-                            <td><?php echo htmlspecialchars($user['telephone']); ?></td>
-                            <td><?php echo htmlspecialchars($user['email']); ?></td>
-                            <td><?php echo htmlspecialchars($user['biological_sex']); ?></td>
-                            <td><?php echo htmlspecialchars($user['street']); ?></td>
-                            <td><?php echo htmlspecialchars($user['number']); ?></td>
-                            <td><?php echo htmlspecialchars($user['neighborhood']); ?></td>
-                            <td><?php echo htmlspecialchars($user['alergies']); ?></td>
-                            <td><?php echo htmlspecialchars($user['diseases']); ?></td>
-                            <td><?php echo htmlspecialchars($user['medicine']); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
         </div>
 
-        
 
-        <?php endif; ?>
 
-        <a href="/projeto_clinica/public/">Cadastrar novo usuário</a>
+    <?php endif; ?>
 
-        <script>
-            function searchNames() {
-                const input = document.getElementById('search');
-                const filter = input.value.toLowerCase();
-                const rows = document.querySelectorAll('#nameList');
+    <a href="/projeto_clinica/user-form">Cadastrar novo usuário</a>
 
-                rows.forEach(row => {
-                    const name = row.cells[1].textContent.toLowerCase(); // Ajuste o índice para a coluna do nome
-                    row.style.display = name.includes(filter) ? '' : 'none';
-                });
-            }
-        </script>
+    <script>
+        function searchNames() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const rows = document.querySelectorAll('.userRow'); // Seleciona todas as linhas com a classe userRow
+
+            rows.forEach(row => {
+                const name = row.cells[0].textContent.toLowerCase(); // Usa o índice correto da célula com o nome
+                row.style.display = name.includes(filter) ? '' : 'none';
+            });
+        }
+    </script>
 </body>
 
 </html>

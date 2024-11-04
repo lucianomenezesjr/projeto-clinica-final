@@ -5,58 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-    body { font-family: Arial, sans-serif;
-    background-color: #fbf6f3;}
-
-    .btn-custom {
-        background-color: #6AB297;
-        color: white;
-    }
-
-    .btn-custom:hover {
-        background-color: #5EADA2;
-    }
-
-    .form-control, .form-select {
-        border: 2px solid #57B998;
-        border-radius: 20px;
-    }
-
-    .container-custom {
-        padding: 20px;
-        margin-top: 100px;
-    }
-
-    .title {
-        font-size: 2.5rem; /* Aumenta o tamanho da fonte */
-        font-weight: bold;  /* Deixa o texto em negrito */
-        color: rgb(71, 74, 76);
-        font-family: 'Inter', sans-serif;
-    }
-
-</style>
+    <link rel="stylesheet" href="../views/styles/agendamentoConsultaSecretario.css">
+    <link rel="shortcut icon" href="../views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
 
 </head>
+<style>
+    body{
+        overflow: hidden;
+    }
+</style>
 <body>
     <div class="row " style="height: 100vh;">
 
         <!-- coluna do lado esquerdo-->
         <div class="col-5 d-flex justify-content-center align-items-center" style="background-color: #fbf6f3">
-            <img src="imagens_login/logoVetor.svg" style="height: 200px;">
+            <img src="../views/imagens/imagens_home/logoVetor.svg" style="height: 200px;">
         </div>
 
         <!-- coluna do lado direito-->
-        <div class="col-6 mt-5" style="background-color: white; border-radius: 40px; padding: 70px; height: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="col-6 mt-5" style="background-color: white; border-radius: 40px; padding: 70px; height: 650px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
             <div class="row justify-content-center align-items-center title">
                 Agendamento de Consultas
             </div>            
 
             <form>    
                 <!-- Seleção do Médico -->
-                <div class="row">
-                <div class="col-7 m-3">
+                <div class="m-3">
                     <label for="doctor" class="form-label">Nome do Médico:</label>
                     <select class="form-select" id="doctor">
                         <option selected>Selecione ou digite o nome de um médico</option>
@@ -65,18 +39,14 @@
                         <option value="doctor3">Dr. Carlos Oliveira</option>
                     </select>
                 </div>
-
-                <div class="profile-section col-4 d-flex justify-content-center align-items-center">
-                    <div class="profile-picture">
-                        <img src="https://img.icons8.com/ios-filled/50/000000/camera.png" style="height: 90px;" alt="Foto do Médico">
-                    </div>
-                </div>
-            </div>
                 
+                <div class="m-3">
+                    <label for="doctor" class="form-label">Paciente</label>
+                    <input type="text" class="form-control" id="paciente_id" placeholder="Digite o ID do paciente">
+                </div>
 
                 <!-- Seleção da Clínica -->
-                 <div class="row">
-                <div class="m-3 col-7">
+                <div class="m-3">
                     <label for="clinic" class="form-label">Clínica:</label>
                     <select class="form-select" id="clinic">
                         <option selected>Selecione uma clínica</option>
@@ -86,12 +56,6 @@
                     </select>
                 </div>
 
-                <div class="col-4 d-flex justify-content-center"> 
-                    [RM]
-                    [especialidade]
-                </div>
-
-                </div>
                 
                 <div class="m-3">
                     <label for="date" class="form-label">Data:</label>

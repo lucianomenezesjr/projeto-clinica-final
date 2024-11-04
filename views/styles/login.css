@@ -1,0 +1,86 @@
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+/*
+
+.imagem-centralizada {
+  display: block;
+  margin: 0 auto;
+}*/
+
+/* Define the scrollbar track */
+::-webkit-scrollbar {
+width: 12px;
+}
+
+/* Define the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+background-color: #a9a9a9; /* Color of the thumb */
+border-radius: 6px; /* Round the corners of the thumb */
+}
+
+/* Define the scrollbar track when not hovered */
+::-webkit-scrollbar-track {
+background-color: #f1f1f1; /* Color of the track */
+}
+
+/* Define the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+background-color: #808080; /* Color of the thumb on hover */
+}
+
+/* Define the scrollbar corner */
+::-webkit-scrollbar-corner {
+background-color: #f1f1f1; /* Color of the corner */
+}
+
+#input-login {
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+#p-login {
+
+    font-weight: 600;
+    
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+/*
+    #imgTopBg{
+    background-color: #fbf6f3; 
+    height: 80vh; 
+    width: 50vh;
+    margin-left: 10vh;
+    margin-right: 0vh;
+    padding: 0px;
+    margin-top: 1vh;
+}
+*/
+#imgTopBg{
+    background-color: #fbf6f3; 
+    height: 100vh;
+    width: 50vh;
+    margin-left: 6vh;
+    margin-right: 6vh;
+    padding: 0px;
+}
+#imgTop{
+    height: 30vh; 
+    width: auto;
+}
+#userName{
+    width: 50vh;
+    border-radius: 18px;
+}
+
+#t { font-size: medium; padding-left: 10px;}
+#t:hover{ background-color: rgb(94, 176, 158, 0.3);}
+
+.offcanvas-end {
+max-width: 350px; /* Defina a largura máxima desejada */
+}

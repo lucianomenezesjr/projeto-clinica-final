@@ -14,6 +14,7 @@
             justify-content: center;
             height: 100%;
         }
+
         /* Bordas arredondadas na imagem */
         .image-rounded {
             border-radius: 10px;
@@ -23,25 +24,48 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+
         ul.list-unstyled li a {
             color: #000; /* Define a cor do texto (alterável) */
             text-decoration: none; /* Remove o sublinhado */
         }
+
         /* Estilo ao passar o mouse */
         ul.list-unstyled li a:hover {
             color: #000; /* Define a cor ao passar o mouse (alterável) */
             text-decoration: none; /* Garante que não fique sublinhado */
         }
+
         /* Estilo quando o link é focado ou ativo */
         ul.list-unstyled li a:focus, ul.list-unstyled li a:active {
             color: #000;
             text-decoration: none;
         }
-        
+
+        input {
+            width: 300px; 
+            border-radius: 15px; 
+            border: none; 
+            padding-left: 20px; 
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+            margin-left: 10px;
+            transition: background-color 0.3s; /* Para um efeito suave ao mudar de cor */
+            background-color: #fbf6f3; /* Cor de fundo padrão */
+            -webkit-text-fill-color: #000; /* Cor do texto padrão */
+        }
+
+        input:focus {
+            background-color: #a9ddde; /* Cor quando o campo está em foco */
+        }
+
+        input:not(:placeholder-shown) {
+            background-color: #a9ddde; /* Cor quando o campo está preenchido */
+        }
+
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light  navbar-custom" style=" border-bottom: 1px solid #07a69e; background-color: #07a69e; padding: 1px;">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="border-bottom: 1px solid #07a69e; background-color: #07a69e; padding: 1px;">
         <!-- Logo e Nome da Marca -->
         <a class="navbar-brand d-flex align-items-center" style="color: white;" href="#">
             <img src="../views/logos/logoVetor.svg" alt="Logo" style="height: 40px;" class="mr-2">
@@ -53,8 +77,7 @@
             <!-- Campo de Busca -->
             <form class="form-inline mr-3">
                 <div class="input-group">
-
-                    <input type="text" style="border-radius: 15px; margin-right: 10px; background-color: #fbf6f3; -webkit-text-fill-color: #000;" class="form-control" placeholder="Faça sua busca aqui" aria-label="Busca">
+                    <input type="text" style="margin-right: 10px; border-radius: 15px;" class="form-control" placeholder="Faça sua busca aqui" aria-label="Busca">
                 </div>
             </form>
 
@@ -79,23 +102,22 @@
         </div>
     </nav>
 
-
     <div class="container mt-5">
         <div class="row">
             <!-- Primeira coluna: Visualização de Exames -->
             <div class="col m-5">
-                <h2 class="text-center">Visualização de exames</h3>
-                <input  placeholder="Selecione o médico" style="width: 300px; border-radius: 15px; border: none; padding-left: 20px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); margin-left: 10px;" class=" mt-5"> </h5>
-                <input placeholder="Selecione o paciente" style="width: 300px; border-radius: 15px; border: none; padding-left: 20px; margin-left: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);" class=" mt-2 mb-4"> </h5>
+                <h2 class="text-center">Visualização de exames</h2>
+                <input placeholder="Selecione o médico" class="mt-5">
+                <input placeholder="Selecione o paciente" class="mt-2 mb-4">
 
-                <ul class="list-unstyled" style="margin-left: 20px;"">
-                    <li><a href="#" ">➤ Exames agendados</a></li>
+                <ul class="list-unstyled" style="margin-left: 20px;">
+                    <li><a href="#">➤ Exames agendados</a></li>
                     <li><a href="#">➤ Exames em processo</a></li>
                     <li><a href="#">➤ Exames - Resultados próximos (30 dias)</a></li>
                     <li><a href="#">➤ Exames - Resultados passados</a></li>
                 </ul>
                 <div class="text-center">
-                    <button class="btn btn-success mt-3">Agendar novo exame </button>
+                    <button class="btn btn-success mt-3">Agendar novo exame</button>
                 </div>
             </div>
 

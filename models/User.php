@@ -97,7 +97,7 @@ class User
 
     // Método para atualizar um usuário
     public function update() {
-        $query = "UPDATE " . $this->table_name . " SET name = :name, birth_date = :birth_date, user_type = :user_type, telephone = :telephone, email = :email, health_care = :health_care, biological_sex = :biological_sex, email_confirmation = :email_confirmation, street = :street, password = :password, number = :number, password_confirmation = :password_confirmation, neighborhood = :neighborhood, allergies = :allergies, diseases = :diseases, medicine = :medicine, WHERE id = :id";
+        $query = "UPDATE " . $this->table_name . " SET name = :name, birth_date = :birth_date, user_type = :user_type, telephone = :telephone, email = :email, health_care = :health_care, biological_sex = :biological_sex, email_confirmation = :email_confirmation, street = :street, password = :password, number = :number, password_confirmation = :password_confirmation, neighborhood = :neighborhood, allergies = :allergies, diseases = :diseases, medicine = :medicine WHERE id = :id";
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':name', $this->name);
@@ -116,6 +116,16 @@ class User
         $stmt->bindParam(':allergies', $this->allergies);
         $stmt->bindParam(':diseases', $this->diseases);
         $stmt->bindParam(':medicine', $this->medicine);
+        $stmt->bindParam(':id', $this->id);
+
+        return $stmt->execute();
+    }
+
+    // Método para excluir um livro pelo título
+    public function deleteById() {
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = :id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $this->id);
 
         return $stmt->execute();
     }

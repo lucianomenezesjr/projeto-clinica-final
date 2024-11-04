@@ -160,12 +160,13 @@ class EditUser{
 
             $user = new User();
             $user->name = $_POST['name'];
+            $user->id = $_POST['id'];
             $user->birth_date = $_POST['birth_date'];
             $user->user_type = $_POST['user_type'];
             $user->telephone = $_POST['telephone'];
             $user->email = $_POST['email'];
             $user->biological_sex = $_POST['biological_sex'];
-            $user->health_care = $_POST['health-care'];
+            $user->health_care = $_POST['health_care'];
             $user->email_confirmation = $_POST['email_confirmation'];
             $user->street = $_POST['street'];
             $user->password = $_POST['password'];
@@ -176,10 +177,25 @@ class EditUser{
             $user->diseases = $_POST['diseases'];
             $user->medicine = $_POST['medicine'];
 
+
             if ($user->update()) {
                 header('Location: /projeto_clinica/list-users');
             } else {
                 echo "Erro ao atualizar o usuário.";
+            }
+        }
+    }
+
+    // Método para excluir um livro pelo título
+    public function deleteBookById() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user = new User();
+            $user->id = $_POST['id'];
+
+            if ($user->deleteById()) {
+                header('Location: /projeto_clinica/list-users');
+            } else {
+                echo "Erro ao excluir o usuário.";
             }
         }
     }

@@ -100,7 +100,7 @@
     style="font-size: 60px; font-weight: bold; text-align: center; margin-top: 20px; margin-bottom: 40px; color: #5EB09E;">
     Edição do cadastro  </h1>
 
-  <form action="/projeto_clinica/save-user" method="POST" onsubmit="return validarFormulario()">
+  <form action="/projeto_clinica/update-user" method="POST" >
     <div class="container pt-0 pb-2 p-5">
       <div class="row"> <!-- primeira linha -->
         <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
@@ -153,10 +153,9 @@
         <div class="col   mb-1 d-flex justify-content-center">
           <select class="botao" value="<?php echo $userInfo['biological_sex']; ?>" name="biological_sex" required>
             <option value="select" disabled selected style="text-align: center;">Sexo biológico</option>
-            <option value="Feminino"   class="quadro" style="text-align: center;">Feminino</option>
-            <option value="Masculino"   class="quadro" style="text-align: center;">Masculino
-            </option>
-            <option value="outro"   class="quadro" style="text-align: center;">Outro</option>
+            <option value="Feminino" <?php echo ($userInfo['biological_sex'] == 'Feminino') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Feminino</option>
+            <option value="Masculino" <?php echo ($userInfo['biological_sex'] == 'Masculino') ? 'selected' : ''; ?> class="quadro" style="text-align: center;">Masculino</option>
+            <option value="Outro" <?php echo ($userInfo['biological_sex'] == 'Outro') ? 'selected' : ''; ?>   class="quadro" style="text-align: center;">Outro</option>
           </select>
         </div>
 

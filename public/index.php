@@ -85,6 +85,12 @@ switch ($request) {
         $controller->updateUser();
         break;
 
+    case '/projeto_clinica/delete-user':
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->deleteBookById();
+        break;
+
     default:
         http_response_code(404);
         echo "Página

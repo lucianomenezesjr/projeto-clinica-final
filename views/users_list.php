@@ -412,9 +412,15 @@
                         <td><?php echo htmlspecialchars($user['medicine']); ?></td>
                         <td>
                             <!-- Link para atualizar o livro -->
-                            <a href="/projeto_clinica/update-user/<?php echo $user['id']; ?>">Atualizar</a>
+                            <a href="/projeto_clinica/update-user/<?php echo $user['id']; ?>" style="text-decoration: none;">Atualizar</a>
+
+                            <form action="/projeto_clinica/delete-user" method="POST" style="display:inline;">
+                                <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                                <button type="submit" class="btn active" style="width: auto; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">Excluir</button>
+                            </form>
                             
-                            
+
+
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -426,7 +432,7 @@
 
     <?php endif; ?>
 
-    <a href="/projeto_clinica/user-form">Cadastrar novo usuário</a>
+    <a href="/projeto_clinica/user-form" style="text-decoration: none;" >Cadastrar novo usuário</a>
 
     <script>
         function searchNames() {

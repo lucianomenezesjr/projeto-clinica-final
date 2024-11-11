@@ -6,6 +6,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once '../controllers/UsersController.php';
+require_once '../controllers/ConsultaController.php';
 
 // Lógica de roteamento
 $request = $_SERVER['REQUEST_URI'];
@@ -31,9 +32,11 @@ switch ($request) {
         $controller->showLogin();
         break;
 
-    case '/projeto_clinica/home/paciente':
+    case (preg_match('/\/projeto_clinica\/home\/paciente\/(\d+)/', $request, $matches) ? true : false):
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
         $controller = new homeTypes();
-        $controller->showHomePaciente();
+        $controller->showHomePaciente($id);
         break;
 
     case '/projeto_clinica/home/medico':
@@ -57,8 +60,18 @@ switch ($request) {
         break;
 
     case '/projeto_clinica/agendamentos/paciente':
-        $controller = new AgendamentoTypes();
-        $controller->showAgendamentoPaciente();
+        $controller = new ConsultaController();
+        $controller->showFormConsulta();
+        break;
+
+    case '/projeto_clinica/save-consulta':
+        $controller = new ConsultaController();
+        $controller->saveConsulta();
+        break;
+
+    case '/projeto_clinica/agendamentos/consulta-list':
+        $controller = new ConsultaController();
+        $controller->showConsultaList();
         break;
 
     case '/projeto_clinica/agendamentos/secretario':
@@ -67,9 +80,10 @@ switch ($request) {
         break;
 
 
-    case '/projeto_clinica/login-verify':
+    case '/projeto_clinica/home/paciente':
         $controller = new UsersLogin();
         $controller->loginVerify();
+        
         break;
 
     case (preg_match('/\/projeto_clinica\/update-user\/(\d+)/', $request, $matches) ? true : false):
@@ -88,7 +102,7 @@ switch ($request) {
     case '/projeto_clinica/delete-user':
         require_once '../controllers/UsersController.php';
         $controller = new EditUser();
-        $controller->deleteBookById();
+        $controller->deleteUSerById();
         break;
 
     default:

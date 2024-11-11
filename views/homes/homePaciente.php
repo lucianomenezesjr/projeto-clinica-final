@@ -84,7 +84,7 @@
                     <a class="dropdown-item" href="profissionais.html">Profissionais</a>
                     <a class="dropdown-item" href="exames.html">Exames</a>
                     <a class="dropdown-item" href="consultas.html">Consultas</a>
-                    <a class="dropdown-item" href="agendamento.html">Agendamento</a>
+                    <a class="dropdown-item" href="/projeto_clinica/agendamentos/paciente">Agendamento</a>
                 </div>
             </div>
         </div>
@@ -202,7 +202,7 @@
 
 
         <div class="col-6 justify-content-end align-items-center d-flex bg-light">
-            <img src="../views/imagens_home/equipe.png">
+            <img src="../views/imagens/imagens_home/equipe.png">
         </div>
     </div>
     </div>

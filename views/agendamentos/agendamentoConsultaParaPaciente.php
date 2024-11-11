@@ -28,16 +28,16 @@
                 Agendamento de Consultas
             </div>            
 
-            <form>    
+            <form action="/projeto_clinica/save-consulta" method="POST">    
                 <!-- Seleção do Médico -->
                 <div class="row">
                 <div class="col-7 m-3">
                     <label for="doctor" class="form-label">Nome do Médico:</label>
-                    <select class="form-select" id="doctor">
-                        <option selected>Selecione ou digite o nome de um médico</option>
-                        <option value="doctor1">Dr. João Silva</option>
-                        <option value="doctor2">Dra. Ana Souza</option>
-                        <option value="doctor3">Dr. Carlos Oliveira</option>
+                    <select class="form-select" name="medico_escolhido" id="doctor">
+                        <option selected>Selecione o nome de um médico</option>
+                        <option value="Dr. João Silva">Dr. João Silva</option>
+                        <option value="Dra. Ana Souza">Dra. Ana Souza</option>
+                        <option value="Dr. Carlos Oliveira">Dr. Carlos Oliveira</option>
                     </select>
                 </div>
 
@@ -53,11 +53,11 @@
                  <div class="row">
                 <div class="m-3 col-7">
                     <label for="clinic" class="form-label">Clínica:</label>
-                    <select class="form-select" id="clinic">
+                    <select class="form-select" name="unidades_clinicas" id="clinic">
                         <option selected>Selecione uma clínica</option>
-                        <option value="clinic1">Clínica A</option>
-                        <option value="clinic2">Clínica B</option>
-                        <option value="clinic3">Clínica C</option>
+                        <option value="Clínica A">Clínica A</option>
+                        <option value="Clínica B">Clínica B</option>
+                        <option value="Clínica C">Clínica C</option>
                     </select>
                 </div>
 
@@ -70,17 +70,18 @@
                 
                 <div class="m-3">
                     <label for="date" class="form-label">Data:</label>
-                    <input type="date" class="form-control" id="date">
+                    <input type="date" name="data" class="form-control" id="date">
                 </div>
 
                 <!-- Seleção do Horário -->
                 <div class="m-3">
                     <label for="time" class="form-label">Horário:</label>
-                    <input type="time" class="form-control" id="time">
+                    <input type="time" name="horario" class="form-control" id="time" required>
                 </div>
                 <!-- Botão de Agendar -->
                 <div class="text-center">
-                    <button type="submit" class="btn btn-custom mt-1">Agendar Consulta</button>
+                    <input type="submit" class="btn btn-custom mt-1" Agendar Consulta>
+                    
                 </div>
             </form>
 

@@ -99,7 +99,9 @@
                     </div>
                     <div>
                         <p>Faça login na sua conta</p>
-                        <form action="/projeto_clinica/login-verify" method="POST">
+                        <!--<form action="/projeto_clinica/home/paciente/<?php echo $userInfo['id']; ?>" method="POST">-->
+                        <form action="/projeto_clinica/home/paciente" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
                             <div>
                                 <div>
                                     <p id="p-login" style="margin-top: 5vh;">Usuário</p>

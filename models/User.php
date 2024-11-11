@@ -73,9 +73,10 @@ class User
 
     public function getEmailAndPasswordUser($email, $password){
 
-        $query = "SELECT user_type FROM " . $this->table_name . " WHERE email = :email AND password = :password";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email AND password = :password";
 
         $stmt = $this->conn->prepare($query);
+
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
 
@@ -83,7 +84,7 @@ class User
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Retorna o tipo de usuário ou null se não encontrado
-        return $result ? $result['user_type'] : null;
+        return $result ? $result : null;
     }
 
     // Método para buscar um usuário pelo ID

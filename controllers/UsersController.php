@@ -83,29 +83,30 @@ class UsersLogin
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
-
         $user = new User();
-        $user_type = $user->getEmailAndPasswordUser($email, $password);
+        $userInfo = $user->getEmailAndPasswordUser($email, $password);
+        
+        if ($userInfo['user_type'] == "Paciente") {
+            require_once '../views/homes/homePaciente.php';
 
-        if ($user_type == "Paciente") {
-            header('Location: /projeto_clinica/home/paciente');
-            exit();
-        } elseif ($user_type == "Secretária(o)") {
-            header('Location: /projeto_clinica/home/secretario');
-            exit();
-        } elseif ($user_type == "Médica(o)") {
-            header('Location: /projeto_clinica/home/medico');
-            exit();
+            
+
+        } elseif ($userInfo['user_type'] == "Secretária(o)") {
+            require_once '../views/homes/homePaciente.php';
+
+        } elseif ($userInfo['user_type'] == "Médica(o)") {
+            require_once '../views/homes/homePaciente.php';
+
         } else {
             echo "Usuário ou senha inválidos!";
         }
     }
 }
 class HomeTypes
-{
+{   
+    
     public function showHomePaciente()
-    {
-        // Exibe a home de paciente
+    {   
         require_once '../views/homes/homePaciente.php';
     }
     public function showHomeMedico()
@@ -187,7 +188,7 @@ class EditUser{
     }
 
     // Método para excluir um livro pelo título
-    public function deleteBookById() {
+    public function deleteUserById() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = new User();
             $user->id = $_POST['id'];

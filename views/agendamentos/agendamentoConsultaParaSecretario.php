@@ -50,9 +50,9 @@
                     <label for="clinic" class="form-label">Clínica:</label>
                     <select class="form-select" id="clinic">
                         <option selected>Selecione uma clínica</option>
-                        <option value="clinic1">Clínica A</option>
-                        <option value="clinic2">Clínica B</option>
-                        <option value="clinic3">Clínica C</option>
+                        <option value="Clínica A">Clínica A</option>
+                        <option value="Clínica B">Clínica B</option>
+                        <option value="Clínica C">Clínica C</option>
                     </select>
                 </div>
 

@@ -7,39 +7,44 @@
     <!-- Link para o Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
+/* Cores personalizadas (ajuste conforme necessário) */
 
-        .image-rounded {
-            border-radius: 10px;
-        }
+body {
+font-family: 'Inter', sans-serif;
+overflow-x: hidden;
+}
 
-        /* Estilos dos inputs */
-        input, select {
-            width: 700px; 
-            height: 40px;
-            border-radius: 15px; 
-            border: none; 
-            padding-left: 20px; 
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
-            margin: 10px 0;
-            transition: background-color 0.3s;
-            background-color: #fbf6f3; /* Cor inicial */
-            -webkit-text-fill-color: #000; /* Cor do texto padrão */
-        }
 
-        /* Cor após preenchimento para os campos especificados */
-        input:not(:placeholder-shown):valid,
-        select:not(:placeholder-shown):valid {
-            background-color: #a9ddde; /* Fundo verde após preenchimento */
-            color: #fff; /* Texto branco para contraste */
-        }
 
-        .container {
-            margin-top: 50px;
-        }
+.image-rounded {
+border-radius: 10px;
+}
+
+.container {
+margin-top: 50px;
+}
+.campo-padrao {
+  background-color: #fbf6f3; /* Bege */
+}
+
+.campo-preenchido {
+  background-color: #a9ddde; /* Verde */
+}
+
+/* Estilos para todos os campos */
+input, select {
+  width: 700px;
+  height: 40px;
+  border-radius: 15px;
+  border: none;
+  padding-left: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  background-color:#fbf6f3 ;
+  transition: background-color 0.3s; /* Transição suave para a mudança de cor */
+  /* Aplicar a classe padrão inicialmente */
+  class: campo-padrao;
+}
     </style>
 </head>
 <body>
@@ -82,7 +87,7 @@
         <form class="d-flex flex-column align-items-center">
             <input type="text" placeholder="Selecione o médico" class="mt-3">
             <input type="text" placeholder="Insira o ID do paciente">
-            <input type="date" placeholder="Selecione a data" class="mt-3">
+            <input type="date" id="inputData" placeholder="Selecione a data" class="mt-3">
             <input type="time" placeholder="Selecione o horário">
             <input type="text" placeholder="Selecione o local do exame">
             <select class="mt-3" required>
@@ -95,6 +100,23 @@
             <button class="btn btn-success mt-4" type="submit" style="border-radius: 10px;">Confirmar Agendamento</button>
         </form>
     </div>
+
+    <script>
+// Seleciona todos os campos que devem ter a cor alterada
+const campos = document.querySelectorAll('input[type="text"], input[type="date"], input[type="time"], select');
+
+// Função para alterar a cor de fundo
+function mudarCor(campo) {
+  campo.style.backgroundColor = '#a9ddde'; // Cor verde
+}
+
+// Adiciona um evento "input" a cada campo
+campos.forEach(campo => {
+  campo.addEventListener('input', () => {
+    mudarCor(campo);
+  });
+});
+    </script>
 
     <!-- Link para o Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

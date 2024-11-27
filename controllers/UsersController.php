@@ -60,15 +60,17 @@ class UsersController
         }
     }
 
-    public function listUsers()
+    public function listUsers($id)
     {
         // Pega todos os usuários do banco de dados
         $user = new User();
         $users = $user->getAll();
+        $userInfo = $user->getById($id);
 
         // Exibe a lista de usuários
-        require_once '../views/users_list.php';
+        include '../views/users_list.php';
     }
+
 }
 class UsersLogin
 {
@@ -79,55 +81,76 @@ class UsersLogin
     }
 
 
-    public function loginVerify()
+    public function loginVerify($email, $password)
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        // Instancia o objeto User para buscar dados no banco
         $user = new User();
+        // Busca o usuário com email e senha fornecidos
         $userInfo = $user->getEmailAndPasswordUser($email, $password);
         
-        if ($userInfo['user_type'] == "Paciente") {
-            require_once '../views/homes/homePaciente.php';
+        // Verifica se o $userInfo foi encontrado e tem um 'user_type'
+        if ($userInfo && $userInfo['user_type']) {
+            // Redireciona para a home de acordo com o tipo de usuário
+            if ($userInfo['user_type'] == "Paciente") {
 
-            
+                echo $userInfo['id'];
+                header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
+                
 
-        } elseif ($userInfo['user_type'] == "Secretária(o)") {
-            require_once '../views/homes/homePaciente.php';
+            } elseif ($userInfo['user_type'] == "Secretária(o)") {
+                echo $userInfo['id'];
+                header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
 
-        } elseif ($userInfo['user_type'] == "Médica(o)") {
-            require_once '../views/homes/homePaciente.php';
+            } elseif ($userInfo['user_type'] == "Médica(o)") {
+                echo $userInfo['id'];
+                header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
 
+            } elseif ($userInfo['user_type'] == "adm") {
+                echo $userInfo['id'];
+                header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
+            }
         } else {
+            // Exibe mensagem de erro se não encontrou o usuário ou o tipo de usuário
             echo "Usuário ou senha inválidos!";
         }
     }
 }
 class HomeTypes
-{   
-    
-    public function showHomePaciente()
-    {   
-        require_once '../views/homes/homePaciente.php';
-    }
-    public function showHomeMedico()
+{
+
+    public function showHomePaciente($id)
     {
+        $user = new User();
+        $userInfo = $user->getById($id);
+        
+        include '../views/homes/homePaciente.php';
+    }
+    public function showHomeMedico($id)
+    {
+        $user = new User();
+        $userInfo = $user->getById($id);
         // Exibe a home de medico
-        require_once '../views/homes/homeMedico.php';
+        include '../views/homes/homeMedico.php';
     }
-    public function showHomeSecretario()
+    public function showHomeSecretario($id)
     {
-        // Exibe a home de secretário
-        require_once '../views/homes/homeSecretario.php';
+        $user = new User();
+        $userInfo = $user->getById($id);
+
+        include '../views/homes/homeSecretario.php';
     }
     public function showHomePublic()
     {
         // Exibe a home sem login/ pública
         require_once '../views/homes/homePublic.php';
     }
-    public function showHomeAdm()
+    public function showHomeAdm($id)
     {
+        $user = new User();
+        $userInfo = $user->getById($id);
+       
         // Exibe a home como adm
-        require_once '../views/homes/homeAdm.php';
+        include '../views/homes/homeAdm.php';
     }
 }
 class AgendamentoTypes
@@ -144,7 +167,8 @@ class AgendamentoTypes
     }
 }
 
-class EditUser{
+class EditUser
+{
 
     // Método para exibir o formulário de atualização 
     public function showUpdateForm($id)
@@ -154,8 +178,16 @@ class EditUser{
         include '../views/edit_user.php'; // Inclua o arquivo do formulário de atualização
     }
 
+    public function showUserUpdateForm($id)
+    {
+        $user = new User();
+        $userInfo = $user->getById($id);
+        include '../views/edit_user_self.php';
+
+    }
+
     // Método para atualizar um usuário
-    public function updateUser()
+    public function updateUser($id)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -179,22 +211,86 @@ class EditUser{
             $user->medicine = $_POST['medicine'];
 
 
+
             if ($user->update()) {
-                header('Location: /projeto_clinica/list-users');
+
+                $user = new User();
+                $userInfo = $user->getById($id);
+                
+                header('Location: /projeto_clinica/list-users/17');
             } else {
                 echo "Erro ao atualizar o usuário.";
             }
         }
     }
 
-    // Método para excluir um livro pelo título
-    public function deleteUserById() {
+    public function updateUserSelf($id)
+    {
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $user = new User();
+            $user->name = $_POST['name'];
+            $user->id = $_POST['id'];
+            $user->birth_date = $_POST['birth_date'];
+            $user->user_type = $_POST['user_type'];
+            $user->telephone = $_POST['telephone'];
+            $user->email = $_POST['email'];
+            $user->biological_sex = $_POST['biological_sex'];
+            $user->health_care = $_POST['health_care'];
+            $user->email_confirmation = $_POST['email_confirmation'];
+            $user->street = $_POST['street'];
+            $user->password = $_POST['password'];
+            $user->number = $_POST['number'];
+            $user->password_confirmation = $_POST['password_confirmation'];
+            $user->neighborhood = $_POST['neighborhood'];
+            $user->allergies = $_POST['allergies'];
+            $user->diseases = $_POST['diseases'];
+            $user->medicine = $_POST['medicine'];
+
+
+            if ($user->update()) {
+
+                $user = new User();
+                $userInfo = $user->getById($id);
+                
+
+                if ($userInfo['user_type'] == "Paciente") {
+
+                    header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
+                    
+                } elseif ($userInfo['user_type'] == "Secretária(o)") {
+                      
+                    header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
+    
+                } elseif ($userInfo['user_type'] == "Médica(o)") {
+                      
+                    header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
+    
+                } elseif ($userInfo['user_type'] == "adm") {
+                      
+                    header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
+                }
+            } else {
+
+                echo "Erro ao atualizar o usuário.";
+            }
+        }
+    }
+
+    // Método para excluir um livro pelo título
+    public function deleteUserById($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             $user = new User();
             $user->id = $_POST['id'];
+            
+            $userInfo = $user->getById($id);
 
             if ($user->deleteById()) {
-                header('Location: /projeto_clinica/list-users');
+            
+                header('Location: /projeto_clinica/list-users/' . $userInfo['id']);
             } else {
                 echo "Erro ao excluir o usuário.";
             }

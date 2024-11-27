@@ -196,7 +196,7 @@
 
 
         <div class="col-6 justify-content-end align-items-center d-flex bg-light">
-            <img src="../views/imagens/imagens_home/equipe.png">
+            <img src="/projeto_clinica/views/imagens/imagens_home/equipe.png">
         </div>
     </div>
     </div>

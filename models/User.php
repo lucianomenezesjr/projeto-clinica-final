@@ -86,6 +86,7 @@ class User
         // Retorna o tipo de usuário ou null se não encontrado
         return $result ? $result : null;
     }
+    
 
     // Método para buscar um usuário pelo ID
     public function getById($id) {

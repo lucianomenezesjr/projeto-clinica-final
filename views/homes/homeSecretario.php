@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Importação da Fonte Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
     <style>
         /* Definindo a fonte Inter para a página */
         body {
@@ -44,7 +44,7 @@
     <nav class="navbar navbar-expand-lg navbar-light  navbar-custom" style=" border-bottom: 1px solid #07a69e; background-color: #a9ddde; padding: 1px;">
         <!-- Logo e Nome da Marca -->
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="../views/imagens/imagens_home/logoVetor.svg" alt="Logo" style="height: 40px;" class="mr-2">
+            <img src="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" alt="Logo" style="height: 40px;" class="mr-2">
             SP Medical Group
         </a>
 
@@ -65,12 +65,16 @@
 <!-- Botão de Perfil com Dropdown -->
 <div class="dropdown">
     <a class="btn d-flex align-items-center mr-2 dropdown-toggle" style="background-color: #07a69e; color: white;" data-toggle="dropdown" aria-expanded="false">
-        <img src="../views/imagens/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
-        Perfil
+        <img src="/projeto_clinica/views/imagens/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
+        <?php echo $userInfo['name']; ?>
     </a>
     <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="/projeto_clinica/edit-user">Editar Perfil</a>
-        <a class="dropdown-item" href="/projeto_clinica/home/public">Sair</a>
+        <form action="<?php echo '/projeto_clinica/user-edit-self/'.$userInfo['id']?>" method="POST">
+            <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
+            <input type="submit" value="Editar perfil" style="border: none;background-color: #fff;">
+        </form>
+        <!--<a class="dropdown-item" href="/projeto_clinica/user-edit-self">Editar Perfil</a> -->
+        <a href="/projeto_clinica/home/public"><input type="button" value="Sair" style="border: none;background-color: #fff;"></a>
     </div>
 </div>
 
@@ -92,7 +96,7 @@
 
     <div class="row justify-content-center align-items-center p-4" style="border-bottom: 1px solid #fbf6f3; background-color: #07a69e; color: white;">
         <div class="col-4">
-            <img src="../views/imagens/imagens_home/logoVetor.svg" alt="logo" style="background-color: #fbf6f3; padding: 20px; height: 250px; border-radius: 20px; margin-left: 70px;">
+            <img src="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" alt="logo" style="background-color: #fbf6f3; padding: 20px; height: 250px; border-radius: 20px; margin-left: 70px;">
 
         </div>
 
@@ -106,28 +110,28 @@
     <div class="row justify-content-center p-5 mt-3"> <!-- carteirinha .... -->
 
         <div class="card p-0 mb-5 d-flex justify-content-center align-items-center" style="width: 170px; height: 110.5px; margin-right: 100px;" id="custom-card"> <!-- musics -->
-            <img class="card-img-top" style="width: 75px;" src="../views/imagens/imagens_home/c.png">
+            <img class="card-img-top" style="width: 75px;" src="/projeto_clinica/views/imagens/imagens_home/c.png">
             <div class="card-img-overlay">
                 <h4 class="card-title pt-3" style="margin-top: 80px; color: #5EB09E; text-align: center; font-size: 17px;"> carteirinha </h4>
             </div>
         </div>
 
         <div class="card p-0 mb-5 d-flex justify-content-center align-items-center" style="width: 170px; height: 110.5px; margin-right: 100px;" id="custom-card"> <!-- musics -->
-            <img class="card-img-top" style="width: 75px;" src="../views/imagens/imagens_home/cod.png">
+            <img class="card-img-top" style="width: 75px;" src="/projeto_clinica/views/imagens/imagens_home/cod.png">
             <div class="card-img-overlay">
                 <h4 class="card-title pt-3" style="margin-top: 80px; color: #5EB09E; text-align: center; font-size: 17px;"> pagamentos </h4>
             </div>
         </div>
 
         <div class="card p-0 mb-5 d-flex justify-content-center align-items-center" style="width: 170px; height: 110.5px; margin-right: 100px;" id="custom-card"> <!-- musics -->
-            <img class="card-img-top" style="width: 85px;" src="../views/imagens/imagens_home/planos.png">
+            <img class="card-img-top" style="width: 85px;" src="/projeto_clinica/views/imagens/imagens_home/planos.png">
             <div class="card-img-overlay">
                 <h4 class="card-title pt-3" style="margin-top: 80px; color: #5EB09E; text-align: center; font-size: 17px;"> planos </h4>
             </div>
         </div>
 
         <div class="card p-0 mb-5 d-flex justify-content-center align-items-center" style="width: 170px; height: 110.5px;" id="custom-card"> <!-- musics -->
-            <img class="card-img-top" style="width: 75px;" src="../views/imagens/imagens_home/cod.png">
+            <img class="card-img-top" style="width: 75px;" src="/projeto_clinica/views/imagens/imagens_home/cod.png">
             <div class="card-img-overlay">
                 <h4 class="card-title pt-3" style="margin-top: 80px; color: #5EB09E; text-align: center; font-size: 17px;"> INS </h4>
             </div>
@@ -202,7 +206,7 @@
 
 
         <div class="col-6 justify-content-end align-items-center d-flex bg-light">
-            <img src="../views/imagens_home/equipe.png">
+            <img src="/projeto_clinica/views/imagens/imagens_home/equipe.png">
         </div>
     </div>
     </div>

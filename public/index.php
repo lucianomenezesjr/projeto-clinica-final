@@ -22,9 +22,18 @@ switch ($request) {
         $controller = new UsersController();
         $controller->saveUsers();
         break;
+        /*
     case '/projeto_clinica/list-users':
         $controller = new UsersController();
         $controller->listUsers();
+        break; 
+    */
+
+    case (preg_match('/\/projeto_clinica\/list-users\/(\d+)/', $request, $matches) ? true : false):
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new UsersController();
+        $controller->listUsers($id);
         break;
 
     case '/projeto_clinica/login':
@@ -32,32 +41,74 @@ switch ($request) {
         $controller->showLogin();
         break;
 
+    case (preg_match('/\/projeto_clinica\/update-user\/(\d+)/', $request, $matches) ? true : false):
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->showUpdateForm($id);
+        break;
+
+    case '/projeto_clinica/update-user':
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->updateUser($id);
+        break;
+    
+    
+    case (preg_match('/\/projeto_clinica\/home\/medico\/(\d+)/', $request, $matches) ? true : false):
+
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new homeTypes();
+        $controller->showHomeMedico($id);
+
+        break;
+
+    case (preg_match('/\/projeto_clinica\/home\/secretario\/(\d+)/', $request, $matches) ? true : false):
+
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new homeTypes();
+        $controller->showHomeSecretario($id);
+        break;
+
     case (preg_match('/\/projeto_clinica\/home\/paciente\/(\d+)/', $request, $matches) ? true : false):
+
+
         $id = $matches[1];
         require_once '../controllers/UsersController.php';
         $controller = new homeTypes();
         $controller->showHomePaciente($id);
         break;
 
-    case '/projeto_clinica/home/medico':
+    case (preg_match('/\/projeto_clinica\/home\/adm\/(\d+)/', $request, $matches) ? true : false):
+
+
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
         $controller = new homeTypes();
-        $controller->showHomeMedico();
+        $controller->showHomeAdm($id);
+
         break;
 
-    case '/projeto_clinica/home/secretario':
-        $controller = new homeTypes();
-        $controller->showHomeSecretario();
-        break;
+        case (preg_match('/\/projeto_clinica\/user-edit-self\/(\d+)/', $request, $matches) ? true : false):
+
+
+            $id = $matches[1];
+            require_once '../controllers/UsersController.php';
+            $controller = new EditUser();
+            $controller->showUserUpdateForm($id);
+    
+            break;
+
+    
 
     case '/projeto_clinica/home/public':
         $controller = new homeTypes();
         $controller->showHomePublic();
         break;
 
-    case '/projeto_clinica/home/adm':
-        $controller = new homeTypes();
-        $controller->showHomeAdm();
-        break;
+
 
     case '/projeto_clinica/agendamentos/paciente':
         $controller = new ConsultaController();
@@ -74,36 +125,42 @@ switch ($request) {
         $controller->showConsultaList();
         break;
 
+
     case '/projeto_clinica/agendamentos/secretario':
         $controller = new AgendamentoTypes();
         $controller->showAgendamentoSecretario();
         break;
 
 
-    case '/projeto_clinica/home/paciente':
-        $controller = new UsersLogin();
-        $controller->loginVerify();
-        
+    case '/projeto_clinica/login-verify':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Captura os dados do formulário
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            // Instancia o controlador e chama o método de verificação de login
+            $controller = new UsersLogin();
+            $controller->loginVerify($email, $password);
+        } else {
+            echo "Método de requisição inválido!";
+        }
         break;
 
-    case (preg_match('/\/projeto_clinica\/update-user\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/projeto_clinica\/user-edit-self\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1];
         require_once '../controllers/UsersController.php';
-        $controller = new EditUser();
-        $controller->showUpdateForm($id);
-        break;
+        $controller = new editUser();
+        $controller->updateUserSelf($id);
 
-    case '/projeto_clinica/update-user':
-        require_once '../controllers/UsersController.php';
-        $controller = new EditUser();
-        $controller->updateUser();
-        break;
+
 
     case '/projeto_clinica/delete-user':
         require_once '../controllers/UsersController.php';
         $controller = new EditUser();
-        $controller->deleteUSerById();
+        $controller->deleteUSerById($id);
         break;
+
+
 
     default:
         http_response_code(404);

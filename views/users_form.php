@@ -201,7 +201,6 @@
 
   <div class="d-grid justify-content-center">
     <input type="submit" class="btn active" style="width: 200px; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">
-    <a href="/projeto_clinica/list-users">Ver todos os usuários</a>
   </div>
 
   </div>

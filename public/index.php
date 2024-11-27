@@ -53,8 +53,8 @@ switch ($request) {
         $controller = new EditUser();
         $controller->updateUser($id);
         break;
-    
-    
+
+
     case (preg_match('/\/projeto_clinica\/home\/medico\/(\d+)/', $request, $matches) ? true : false):
 
         $id = $matches[1];
@@ -91,17 +91,17 @@ switch ($request) {
 
         break;
 
-        case (preg_match('/\/projeto_clinica\/user-edit-self\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/projeto_clinica\/user-edit-self\/(\d+)/', $request, $matches) ? true : false):
 
 
-            $id = $matches[1];
-            require_once '../controllers/UsersController.php';
-            $controller = new EditUser();
-            $controller->showUserUpdateForm($id);
-    
-            break;
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->showUserUpdateForm($id);
 
-    
+        break;
+
+
 
     case '/projeto_clinica/home/public':
         $controller = new homeTypes();
@@ -146,7 +146,7 @@ switch ($request) {
         }
         break;
 
-    case (preg_match('/\/projeto_clinica\/user-edit-self\/(\d+)/', $request, $matches) ? true : false):
+    case (preg_match('/\/projeto_clinica\/user-edit-self\/update\/(\d+)/', $request, $matches) ? true : false):
         $id = $matches[1];
         require_once '../controllers/UsersController.php';
         $controller = new editUser();

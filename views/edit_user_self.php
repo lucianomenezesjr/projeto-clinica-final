@@ -100,16 +100,7 @@
     style="font-size: 60px; font-weight: bold; text-align: center; margin-top: 20px; margin-bottom: 40px; color: #5EB09E;">
     Edição do cadastro </h1>
 
-  <form action="<?php
-                if ($userInfo['user_type'] == "Paciente") {
-                  echo '/projeto_clinica/home/paciente/' . $userInfo['id'];
-                } elseif ($userInfo['user_type'] == "Secretária(o)") {
-                  echo '/projeto_clinica/home/secretario/' . $userInfo['id'];
-                } elseif ($userInfo['user_type'] == "Médica(o)") {
-                  echo '/projeto_clinica/home/medico/' . $userInfo['id'];
-                } elseif ($userInfo['user_type'] == "adm") {
-                  echo '/projeto_clinica/home/adm/' . $userInfo['id'];
-                } ?>" method="POST" onsubmit="return validarFormulario()">
+  <form action="<?php echo '/projeto_clinica/user-edit-self/update/'.$userInfo['id'] ?>" method="POST" onsubmit="return validarFormulario()">
     <div class="container pt-0 pb-2 p-5">
       <div class="row"> <!-- primeira linha -->
         <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
@@ -220,7 +211,7 @@
           <input class="botao text-center" name="medicine" value="<?php echo $userInfo['medicine']; ?>" placeholder="Medicamentos fixos" required>
         </div>
       </div>
-      <button>deletar</button>
+      <button class="btn active" style="width: 200px; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">deletar</button>
       <input type="submit" class="btn active" style="width: 200px; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">
   </form>
 

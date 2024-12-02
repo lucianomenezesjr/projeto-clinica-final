@@ -70,7 +70,6 @@ class UsersController
         // Exibe a lista de usuários
         include '../views/users_list.php';
     }
-
 }
 class UsersLogin
 {
@@ -87,27 +86,23 @@ class UsersLogin
         $user = new User();
         // Busca o usuário com email e senha fornecidos
         $userInfo = $user->getEmailAndPasswordUser($email, $password);
-        
+
         // Verifica se o $userInfo foi encontrado e tem um 'user_type'
         if ($userInfo && $userInfo['user_type']) {
             // Redireciona para a home de acordo com o tipo de usuário
             if ($userInfo['user_type'] == "Paciente") {
 
                 echo $userInfo['id'];
-                header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
-                
-
+                header('Location: /projeto_clinica/home/paciente/' . $userInfo['id']);
             } elseif ($userInfo['user_type'] == "Secretária(o)") {
                 echo $userInfo['id'];
-                header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
-
+                header('Location: /projeto_clinica/home/secretario/' . $userInfo['id']);
             } elseif ($userInfo['user_type'] == "Médica(o)") {
                 echo $userInfo['id'];
-                header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
-
+                header('Location: /projeto_clinica/home/medico/' . $userInfo['id']);
             } elseif ($userInfo['user_type'] == "adm") {
                 echo $userInfo['id'];
-                header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
+                header('Location: /projeto_clinica/home/adm/' . $userInfo['id']);
             }
         } else {
             // Exibe mensagem de erro se não encontrou o usuário ou o tipo de usuário
@@ -122,7 +117,7 @@ class HomeTypes
     {
         $user = new User();
         $userInfo = $user->getById($id);
-        
+
         include '../views/homes/homePaciente.php';
     }
     public function showHomeMedico($id)
@@ -148,7 +143,7 @@ class HomeTypes
     {
         $user = new User();
         $userInfo = $user->getById($id);
-       
+
         // Exibe a home como adm
         include '../views/homes/homeAdm.php';
     }
@@ -183,7 +178,6 @@ class EditUser
         $user = new User();
         $userInfo = $user->getById($id);
         include '../views/edit_user_self.php';
-
     }
 
     // Método para atualizar um usuário
@@ -216,7 +210,7 @@ class EditUser
 
                 $user = new User();
                 $userInfo = $user->getById($id);
-                
+
                 header('Location: /projeto_clinica/list-users/17');
             } else {
                 echo "Erro ao atualizar o usuário.";
@@ -226,7 +220,7 @@ class EditUser
 
     public function updateUserSelf()
     {
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $user = new User();
@@ -251,25 +245,22 @@ class EditUser
 
             if ($user->update()) {
 
-               
+
                 $userInfo = $user->getById($user->id);
-                
+
 
                 if ($user->user_type == "Paciente") {
 
-                    header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
-                    
+                    header('Location: /projeto_clinica/home/paciente/' . $userInfo['id']);
                 } elseif ($user->user_type == "Secretária(o)") {
-                      
-                    header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
-    
+
+                    header('Location: /projeto_clinica/home/secretario/' . $userInfo['id']);
                 } elseif ($user->user_type == "Médica(o)") {
-                      
-                    header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
-    
+
+                    header('Location: /projeto_clinica/home/medico/' . $userInfo['id']);
                 } elseif ($user->user_type == "adm") {
-                      
-                    header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
+
+                    header('Location: /projeto_clinica/home/adm/' . $userInfo['id']);
                 }
             } else {
 
@@ -285,11 +276,11 @@ class EditUser
 
             $user = new User();
             $user->id = $_POST['id'];
-            
+
             $userInfo = $user->getById($id);
 
             if ($user->deleteById()) {
-            
+
                 header('Location: /projeto_clinica/list-users/17');
             } else {
                 echo "Erro ao excluir o usuário.";
@@ -302,35 +293,19 @@ class EditUser
         $user = new User();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            
+
             $user->id = $_POST['id'];
-            
-            
+
+
             $userInfo = $user->getById($user->id);
-
-            if ($user->deleteById()) {
             
-                
+            if ($user->deleteById()) {
 
-                if ($user->user_type == "Paciente") {
-
-                    header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
-                    
-                } elseif ($user->user_type == "Secretária(o)") {
-                      
-                    header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
-    
-                } elseif ($user->user_type == "Médica(o)") {
-                      
-                    header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
-    
-                } elseif ($user->user_type == "adm") {
-                      
-                    header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
-                }
+                header('Location: /projeto_clinica/home/public');
             } else {
                 echo "Erro ao excluir o usuário.";
             }
-        }
+
+        } 
     }
 }

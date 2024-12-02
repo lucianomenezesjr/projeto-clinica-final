@@ -218,7 +218,7 @@
         return false;
       }
 
-      alert("Cadastro realizado com sucesso!");
+      alert("Cadastro atualizado com sucesso!");
       return true;
     }
   </script>

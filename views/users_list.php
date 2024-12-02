@@ -344,7 +344,7 @@
 
 
             <!-- Botão Acesso Rápido com Dropdown -->
-            
+
         </div>
     </nav>
 
@@ -400,11 +400,13 @@
                         <td><?php echo htmlspecialchars($user['medicine']); ?></td>
                         <td>
                             <!-- Link para atualizar o usuário -->
-                            <a href="/projeto_clinica/update-user/<?php echo $user['id']; ?>" style="text-decoration: none;">Atualizar</a>
+                            <button type="submit" class="btn btn-primary" style=" margin-top: 1vh;">
+                                <a href="/projeto_clinica/update-user/<?php echo $user['id']; ?>" style="color: white;" >Atualizar</a>
+                            </button>
 
                             <form action="/projeto_clinica/delete-user" method="POST" style="display:inline;">
                                 <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                                <button type="submit" class="btn active" style="width: auto; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">Excluir</button>
+                                <button type="submit" class="btn btn-danger" style="margin-top: 1vh;">Excluir</button>
                             </form>
 
 

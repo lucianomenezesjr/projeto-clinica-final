@@ -66,7 +66,9 @@
 <div class="dropdown">
     <a class="btn d-flex align-items-center mr-2 dropdown-toggle" style="background-color: #07a69e; color: white;" data-toggle="dropdown" aria-expanded="false">
         <img src="/projeto_clinica/views/imagens/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
-        <?php echo $userInfo['name']; ?>
+        <?php echo $userInfo['name']; 
+        $role = ($userInfo['biological_sex'] == 'Masculino') ? 'Secretário' : (($userInfo['biological_sex'] == 'Feminino') ? 'Secretária' : 'Secretário(a)');
+        echo " - $role";?> 
     </a>
     <div class="dropdown-menu dropdown-menu-right">
         <form action="<?php echo '/projeto_clinica/update-user-self/' . $userInfo['id'] ?>" method="POST">
@@ -85,8 +87,7 @@
                     Acesso Rápido
                 </button>
                 <div class="dropdown-menu" aria-labelledby="acessoRapidoDropdown">
-                    <a class="dropdown-item" href="">Profissionais</a>
-                    <a class="dropdown-item" href="">Exames</a>
+                    
                     <a class="dropdown-item" href="/projeto_clinica/agendamentos/consulta-list">Consultas</a>
                     <a class="dropdown-item" href="/projeto_clinica/agendamentos/secretario">Agendamento</a>
                 </div>

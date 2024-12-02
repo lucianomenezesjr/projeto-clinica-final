@@ -5,102 +5,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edição do cadastro</title>
-  <link rel="shortcut icon" href="views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Importação da Fonte Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" type="image/x-icon">
   <link rel="stylesheet" href="/projeto_clinica/views/styles/users_form.css">
 
 </head>
 
 <body>
 
-  <div class="container-fluid" style="padding: 0px;">
+  <nav class="navbar navbar-expand-lg navbar-light  navbar-custom" style=" border-bottom: 1px solid #07a69e; background-color: #a9ddde; padding: 1px;">
+    <!-- Logo e Nome da Marca -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" alt="Logo" style="height: 40px;" class="mr-2">
+      SP Medical Group
+    </a>
 
-    <!-- <nav class="navbar" style="margin: 2vh; border-radius: 24px; background-color: #A9DDDE; padding: 0px;">-->
-    <!-- navbar -->
-
-    <nav class="navbar mt-2 mb-2 p-0"
-      style="background-color: #A9DDDE; border-radius: 24px; margin-left: 2vh; margin-right: 2vh; ">
-
-      <div class="container-fluid">
-        <a class="navbar-brand" href="">
-          <div style="font-weight: boldCadastro; " id="title" class="p-0 m-0">
-            <img src="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" class="img-fluid" style="height: 60px; margin-left: -10px;" alt="logo"> Medical Group | Fisioterapia
+    <!-- Campo de busca e botão de login -->
+    <div class="collapse navbar-collapse justify-content-end">
+      <!-- Campo de Busca -->
+      <form class="form-inline mr-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="search-icon">
+              <i class="fas fa-search"></i>
+            </span>
           </div>
+          <input type="text" class="form-control" placeholder="Faça sua busca aqui" aria-label="Busca" aria-describedby="search-icon">
+        </div>
+      </form>
+
+      <!-- Botão de Perfil com Dropdown -->
+      <div class="dropdown">
+        <a class="btn d-flex align-items-center mr-2 dropdown-toggle" style="background-color: #07a69e; color: white;" data-toggle="dropdown" aria-expanded="false">
+          <img src="/projeto_clinica/views/imagens/imagens_home/c_branco-removebg-preview.png" style="height: 25px; margin-right: 5px;">
+          <?php echo $userInfo['name']; ?>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="margin-right: 2vh;">
-          <span class="navbar-toggler-icon"></span>
+        <div class="dropdown-menu dropdown-menu-right">
+          <form action="<?php echo '/projeto_clinica/update-user-self/' . $userInfo['id'] ?>" method="POST">
+            <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
+            <input type="submit" value="Editar perfil" style="border: none;background-color: #fff;">
+          </form>
+          <!--<a class="dropdown-item" href="/projeto_clinica/user-edit-self">Editar Perfil</a> -->
+          <a href="/projeto_clinica/home/public"><input type="button" value="Sair" style="border: none;background-color: #fff;"></a>
+        </div>
+      </div>
+
+
+      <!-- Botão Acesso Rápido com Dropdown -->
+      <div class="dropdown">
+        <button class="btn dropdown-toggle mr-3" type="button" id="acessoRapidoDropdown" style="color:white; background-color: #f15e70;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Acesso Rápido
         </button>
-      </div>
-
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-
-        <!-- side bar -->
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="title" style="font-size: 25px; font-weight: bold; color: #4F525D;">SP Medical
-            Group</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" id="t" href="home.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" id="t" href="#">Agendamento</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="t" href="#">Consultas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="t" href="#">Exames</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="t" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Profissionais
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Fisioterapia Cardiovascular</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Fisioterapia dermatofuncional</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Fisioterapia Funcional</a></li>
-              </ul>
-            </li>
-
-          </ul>
-
-          <div style="position: absolute; bottom: 15px; text-align: center; margin-left: -15px; width: 100%;">
-            <a href="login.html">
-              <button class="btn btn-success mb-1 p-0" style="font-weight: bold; width: 90%;">
-                Acesse sua conta
-                <img src="../views/imagens_home/c_branco-removebg-preview.png" style="width:40px; padding-left: 2px;">
-              </button>
-            </a>
-          </div>
-
-
-
+        <div class="dropdown-menu" aria-labelledby="acessoRapidoDropdown">
+          <a class="dropdown-item" href="profissionais.html">Profissionais</a>
+          <a class="dropdown-item" href="exames.html">Exames</a>
+          <a class="dropdown-item" href="consultas.html">Consultas</a>
+          <a class="dropdown-item" href="/projeto_clinica/agendamentos/paciente">Agendamento</a>
         </div>
       </div>
-  </div>
+    </div>
   </nav>
 
   <h1
     style="font-size: 60px; font-weight: bold; text-align: center; margin-top: 20px; margin-bottom: 40px; color: #5EB09E;">
     Edição do cadastro </h1>
 
-  <form action="<?php echo '/projeto_clinica/user-edit-self/update/'.$userInfo['id'] ?>" method="POST" onsubmit="return validarFormulario()">
+  <form action="/projeto_clinica/update-user-self" method="POST" onsubmit="return validarFormulario()">
     <div class="container pt-0 pb-2 p-5">
       <div class="row"> <!-- primeira linha -->
         <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
@@ -211,15 +183,23 @@
           <input class="botao text-center" name="medicine" value="<?php echo $userInfo['medicine']; ?>" placeholder="Medicamentos fixos" required>
         </div>
       </div>
-      <button class="btn active" style="width: 200px; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">deletar</button>
+
       <input type="submit" class="btn active" style="width: 200px; background-color: #5EB09E; border: none;border-radius: 12px; color: #000;">
   </form>
+  
 
   <div class="d-grid justify-content-center">
-
+  <form action="/projeto_clinica/delete-user-self" method="POST" style="display:inline;">
+    <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
+    <button type="submit" class="btn btn-danger" style="border-radius: 12px; padding: 10px 20px; font-weight: bold; margin-top: 1vh;">
+      Excluir
+    </button>
+  </form>
   </div>
 
   </div>
+
+  
 
   <script>
     function validarFormulario() {

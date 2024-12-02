@@ -48,10 +48,25 @@ switch ($request) {
         $controller->showUpdateForm($id);
         break;
 
+
+    case (preg_match('/\/projeto_clinica\/update-user-self\/(\d+)/', $request, $matches) ? true : false):
+        $id = $matches[1];
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->showUserUpdateForm($id);
+        break;
+
+
     case '/projeto_clinica/update-user':
         require_once '../controllers/UsersController.php';
         $controller = new EditUser();
         $controller->updateUser($id);
+        break;
+
+    case '/projeto_clinica/update-user-self':
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->updateUserSelf();
         break;
 
 
@@ -158,6 +173,12 @@ switch ($request) {
         require_once '../controllers/UsersController.php';
         $controller = new EditUser();
         $controller->deleteUSerById($id);
+        break;
+
+    case '/projeto_clinica/delete-user-self':
+        require_once '../controllers/UsersController.php';
+        $controller = new EditUser();
+        $controller->deleteUSerSelfById();
         break;
 
 

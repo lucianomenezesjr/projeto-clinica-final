@@ -67,7 +67,7 @@
                     <?php echo $userInfo['name']; ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <form action="<?php echo '/projeto_clinica/user-edit-self/' . $userInfo['id'] ?>" method="POST">
+                    <form action="<?php echo '/projeto_clinica/update-user-self/' . $userInfo['id'] ?>" method="POST">
                         <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
                         <input type="submit" value="Editar perfil" style="border: none;background-color: #fff;">
                     </form>
@@ -83,9 +83,9 @@
                     Acesso Rápido
                 </button>
                 <div class="dropdown-menu" aria-labelledby="acessoRapidoDropdown">
-                    <a class="dropdown-item" href="profissionais.html">Profissionais</a>
-                    <a class="dropdown-item" href="exames.html">Exames</a>
-                    <a class="dropdown-item" href="consultas.html">Consultas</a>
+                    <a class="dropdown-item" href="">Profissionais</a>
+                    <a class="dropdown-item" href="">Exames</a>
+                    <a class="dropdown-item" href="/projeto_clinica/agendamentos/consulta-list">Consultas</a>
                     <a class="dropdown-item" href="/projeto_clinica/agendamentos/paciente">Agendamento</a>
                 </div>
             </div>
@@ -109,7 +109,7 @@
 
         <div class="card p-0 mb-5 d-flex justify-content-center align-items-center" style="width: 170px; height: 110.5px; margin-right: 100px;" id="custom-card"> <!-- musics -->
             <img class="card-img-top" style="width: 75px;" src="/projeto_clinica/views/imagens/imagens_home/c.png">
-            <div class="card-img-overlay">/projeto_clinica/
+            <div class="card-img-overlay">
                 <h4 class="card-title pt-3" style="margin-top: 80px; color: #5EB09E; text-align: center; font-size: 17px;"> carteirinha </h4>
             </div>
         </div>

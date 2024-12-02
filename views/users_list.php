@@ -399,7 +399,7 @@
                         <td><?php echo htmlspecialchars($user['diseases']); ?></td>
                         <td><?php echo htmlspecialchars($user['medicine']); ?></td>
                         <td>
-                            <!-- Link para atualizar o livro -->
+                            <!-- Link para atualizar o usuário -->
                             <a href="/projeto_clinica/update-user/<?php echo $user['id']; ?>" style="text-decoration: none;">Atualizar</a>
 
                             <form action="/projeto_clinica/delete-user" method="POST" style="display:inline;">

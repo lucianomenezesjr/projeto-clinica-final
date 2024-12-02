@@ -69,7 +69,7 @@
         <?php echo $userInfo['name']; ?>
     </a>
     <div class="dropdown-menu dropdown-menu-right">
-        <form action="<?php echo '/projeto_clinica/user-edit-self/'.$userInfo['id']?>" method="POST">
+        <form action="<?php echo '/projeto_clinica/update-user-self/' . $userInfo['id'] ?>" method="POST">
             <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
             <input type="submit" value="Editar perfil" style="border: none;background-color: #fff;">
         </form>
@@ -85,10 +85,10 @@
                     Acesso Rápido
                 </button>
                 <div class="dropdown-menu" aria-labelledby="acessoRapidoDropdown">
-                    <a class="dropdown-item" href="profissionais.html">Profissionais</a>
-                    <a class="dropdown-item" href="exames.html">Exames</a>
-                    <a class="dropdown-item" href="consultas.html">Consultas</a>
-                    <a class="dropdown-item" href="agendamento.html">Agendamento</a>
+                    <a class="dropdown-item" href="">Profissionais</a>
+                    <a class="dropdown-item" href="">Exames</a>
+                    <a class="dropdown-item" href="/projeto_clinica/agendamentos/consulta-list">Consultas</a>
+                    <a class="dropdown-item" href="/projeto_clinica/agendamentos/secretario">Agendamento</a>
                 </div>
             </div>
         </div>

@@ -69,7 +69,7 @@
                     <?php echo $userInfo['name']; ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <form action="<?php echo '/projeto_clinica/user-edit-self/' . $userInfo['id'] ?>" method="POST">
+                    <form action="<?php echo '/projeto_clinica/update-user-self/' . $userInfo['id'] ?>" method="POST">
                         <input type="hidden" name="id" value="<?php echo $userInfo['id']; ?>">
                         <input type="submit" value="Editar perfil" style="border: none;background-color: #fff;">
                     </form>

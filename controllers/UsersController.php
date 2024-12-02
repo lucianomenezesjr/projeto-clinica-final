@@ -224,7 +224,7 @@ class EditUser
         }
     }
 
-    public function updateUserSelf($id)
+    public function updateUserSelf()
     {
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -251,23 +251,23 @@ class EditUser
 
             if ($user->update()) {
 
-                $user = new User();
-                $userInfo = $user->getById($id);
+               
+                $userInfo = $user->getById($user->id);
                 
 
-                if ($userInfo['user_type'] == "Paciente") {
+                if ($user->user_type == "Paciente") {
 
                     header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
                     
-                } elseif ($userInfo['user_type'] == "Secretária(o)") {
+                } elseif ($user->user_type == "Secretária(o)") {
                       
                     header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
     
-                } elseif ($userInfo['user_type'] == "Médica(o)") {
+                } elseif ($user->user_type == "Médica(o)") {
                       
                     header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
     
-                } elseif ($userInfo['user_type'] == "adm") {
+                } elseif ($user->user_type == "adm") {
                       
                     header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
                 }
@@ -290,7 +290,44 @@ class EditUser
 
             if ($user->deleteById()) {
             
-                header('Location: /projeto_clinica/list-users/' . $userInfo['id']);
+                header('Location: /projeto_clinica/list-users/17');
+            } else {
+                echo "Erro ao excluir o usuário.";
+            }
+        }
+    }
+
+    public function deleteUserSelfById()
+    {
+        $user = new User();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            
+            $user->id = $_POST['id'];
+            
+            
+            $userInfo = $user->getById($user->id);
+
+            if ($user->deleteById()) {
+            
+                
+
+                if ($user->user_type == "Paciente") {
+
+                    header('Location: /projeto_clinica/home/paciente/'.$userInfo['id']);
+                    
+                } elseif ($user->user_type == "Secretária(o)") {
+                      
+                    header('Location: /projeto_clinica/home/secretario/'.$userInfo['id']);
+    
+                } elseif ($user->user_type == "Médica(o)") {
+                      
+                    header('Location: /projeto_clinica/home/medico/'.$userInfo['id']);
+    
+                } elseif ($user->user_type == "adm") {
+                      
+                    header('Location: /projeto_clinica/home/adm/'.$userInfo['id']);
+                }
             } else {
                 echo "Erro ao excluir o usuário.";
             }

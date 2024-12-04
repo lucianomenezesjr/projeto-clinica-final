@@ -69,10 +69,21 @@ a {
     margin-right: 6vh;
     padding: 0px;
 }
-#imgTop{
-    height: 30vh; 
-    width: auto;
+
+@media (max-width: 768px) {
+    #imgTopBg {
+        height: 20vh; /* Limita o contêiner a metade da altura */
+        width: 100%; /* Faz o contêiner ocupar toda a largura */
+        margin: 0; /* Remove margens extras */
+    }
+
+    #imgTop {
+        height: 100%; /* Faz a imagem preencher o contêiner */
+        width: 100%; /* Ajusta a largura da imagem ao contêiner */
+        object-fit: contain; /* Evita cortes na imagem */
+    }
 }
+
 #userName{
     width: 50vh;
     border-radius: 18px;

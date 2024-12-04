@@ -289,7 +289,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light  navbar-custom" style=" border-bottom: 1px solid #07a69e; background-color: #a9ddde; padding: 1px;">
         <!-- Logo e Nome da Marca -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="<?php echo '/projeto_clinica/home/paciente/' . $userInfo['id'] ?>">
             <img src="/projeto_clinica/views/imagens/imagens_home/logoVetor.svg" alt="Logo" style="height: 40px;" class="mr-2">
             SP Medical Group
         </a>
